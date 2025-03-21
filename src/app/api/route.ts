@@ -7,8 +7,9 @@ export const config = {
 
 
 // POST request
-export async function GET (req: NextRequest) {
+export async function GET () {
     let transcript = {}
+
 
     await YoutubeTranscript.fetchTranscript('https://www.youtube.com/watch?v=NwZ26lxl8wU').then((data) => {
         console.log(data)
@@ -16,7 +17,7 @@ export async function GET (req: NextRequest) {
     });
 
     //Data response
-    let data = { response: transcript };
+    const data = { response: transcript };
 
     //Response
     return NextResponse.json(data, {
